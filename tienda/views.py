@@ -48,7 +48,7 @@ def registrar_usuario(request):
         if not User.objects.filter(username=username).exists():
             User.objects.create_user(username=username, email=email, password=password)
     return redirect('inicio')
-# Agregar usaario
+# Para poder agregar usaario
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth import authenticate, login
 from django.http import JsonResponse, HttpResponseNotAllowed
@@ -67,7 +67,7 @@ def login_usuario(request):
         else:
             return JsonResponse({'success': False, 'error': 'Credenciales incorrectas'})
 
-    # Si no es método POST, devolver error 405 explícitamente
+
     return HttpResponseNotAllowed(['POST'])
 
 
